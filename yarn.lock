@@ -1173,6 +1173,13 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
+"@babel/runtime@^7.14.8":
+  version "7.14.8"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.14.8.tgz#7119a56f421018852694290b9f9148097391b446"
+  integrity sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.8.4":
   version "7.14.6"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
@@ -2912,10 +2919,10 @@
     "@typescript-eslint/types" "4.22.1"
     eslint-visitor-keys "^2.0.0"
 
-"@winfe/eslint-config-winex@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@winfe/eslint-config-winex/-/eslint-config-winex-0.0.11.tgz#9c830a3ec6338250206ed243c4b2764d2eb58baf"
-  integrity sha512-fNx1tqc1FLEtlUUdt280LfSd878dlpHP5+1xZiaSEgcD8IGltir93F/w7Ksu+6D1wsJT5sFb6S8/KofKoM5WlQ==
+"@winfe/eslint-config-winex@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.npmjs.org/@winfe/eslint-config-winex/-/eslint-config-winex-0.0.12.tgz#00121d48230100a81b33674bb69a9af6ec6d4fee"
+  integrity sha512-qJrroyt7TiDzk7ZLeKKY/pfilXD4sAngK+N2jhN4cOdHHPrJtTly52lOEpC+dpHPi5gIs7PHu5oB40D6GHxgdg==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
