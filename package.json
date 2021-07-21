@@ -1,6 +1,6 @@
 {
   "name": "@winfe/vue-cli-plugin-qiankun",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "description": "Create a  App in seconds.",
   "files": [
     "lib"
@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/cool-fe/vue-cli-plugin-qiankun#readme",
   "dependencies": {
+    "@babel/runtime": "^7.14.8",
     "chalk": "^4.1.0",
-    "cross-spawn": "^7.0.3",
-    "@babel/runtime":"^7.14.8"
+    "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.13.14",
