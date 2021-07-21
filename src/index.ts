@@ -1,6 +1,10 @@
-export default function PluginQiankun(api: any, options: any){
-    console.log('PluginQiankun',api);
-    console.log('PluginQiankun',options);
-}
+export { isMasterEnable } from './master';
+export { isSlaveEnable } from './slave';
 
-export const dsx = 1
+
+export default function PluginQiankun(api: any, options: any) {
+    const master = require('./master');
+    const slave = require('./slave');
+    master.default(api,options)
+    slave.default(api,options)
+}

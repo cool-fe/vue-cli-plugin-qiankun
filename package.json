@@ -21,15 +21,17 @@
   },
   "homepage": "https://github.com/cool-fe/vue-cli-plugin-qiankun#readme",
   "dependencies": {
+    "@babel/runtime": "^7.14.8",
     "chalk": "^4.1.0",
     "cross-spawn": "^7.0.3",
-    "@babel/runtime":"^7.14.8"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.13.14",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.171",
     "@typescript-eslint/eslint-plugin": "4.22.1",
     "@typescript-eslint/parser": "4.22.1",
     "@winfe/eslint-config-winex": "0.0.11",
