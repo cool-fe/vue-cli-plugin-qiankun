@@ -1,8 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { patchRoutes } from "../master";
+import {
+  patchRoutes,
+  getMicroAppRouteComponent,
+} from "@winfe/vue-cli-plugin-qiankun/lib/master/generator";
 import Home from "../views/Home.vue";
-import { getMicroAppRouteComponent } from "../master/getMicroAppRouteComponent";
 
 Vue.use(VueRouter);
 
@@ -19,15 +21,15 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/App2.vue"),
   },
   {
-    path: '/app3',
-    microApp: 'app3',
+    path: "/app3",
+    microApp: "app3",
     settings: {
       singular: false,
     },
     microAppProps: {
       autoSetLoading: true,
-      className: 'appClassName',
-      wrapperClassName: 'wrapperClass',
+      className: "appClassName",
+      wrapperClassName: "wrapperClass",
     },
   },
   {

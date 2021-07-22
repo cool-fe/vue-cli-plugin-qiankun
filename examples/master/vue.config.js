@@ -1,7 +1,7 @@
 module.exports = {
   pluginOptions: {
     qiankun: {
-      master: {
+      master1: {
         apps: [
           {
             name: "app1",
@@ -20,6 +20,7 @@ module.exports = {
           },
         ],
       },
+      slave:{}
     },
   },
   devServer: {

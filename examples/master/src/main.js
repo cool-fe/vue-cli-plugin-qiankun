@@ -2,14 +2,12 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { render } from "./master";
+import { render } from "@winfe/vue-cli-plugin-qiankun/lib/master/generator";
 
-import antd  from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-
+import antd from "ant-design-vue";
+import "ant-design-vue/dist/antd.css";
 
 Vue.use(antd);
-
 
 Vue.config.productionTip = false;
 

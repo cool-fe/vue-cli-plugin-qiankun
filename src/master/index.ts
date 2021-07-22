@@ -9,3 +9,4 @@ export default function QiankunMaster(api: any, options: any) {
     console.log("QiankunMaster");
   }
 }
+

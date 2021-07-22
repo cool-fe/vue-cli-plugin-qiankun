@@ -4,9 +4,9 @@ export default {
   cjs: { type: "babel", lazy: true },
   runtimeHelpers: true,
   browserFiles: [
-    'src/master/runtimePlugin.ts',
-    'src/slave/lifecycles.ts',
-    'src/slave/runtimePlugin.ts',
+    'src/master/generator/index.js',
+    'src/slave/generator/lifecycles.ts',
+    'src/slave/generator/index.js',
     'src/common.ts',
   ],
 };

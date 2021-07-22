@@ -1,21 +1,19 @@
-import { prefetchApps } from "qiankun";
-import {
-  getMasterRuntime,
-  getMasterOptions,
-  setMasterOptions,
-} from "./masterOptions";
-import { getMicroAppRouteComponent } from "./getMicroAppRouteComponent";
+import { prefetchApps } from 'qiankun';
+import { getMasterRuntime, getMasterOptions, setMasterOptions } from './masterOptions';
+import { getMicroAppRouteComponent } from './getMicroAppRouteComponent';
 
-import { patchMicroAppRoute } from "./common";
+import { patchMicroAppRoute } from './common';
 
 let microAppRuntimeRoutes;
+
+export { getMicroAppRouteComponent };
 
 export function render(oldRender) {
   return (h) => {
     const runtimeOptions = getMasterRuntime();
     let masterOptions = {
       ...getMasterOptions(),
-      ...runtimeOptions,
+      ...runtimeOptions
     };
 
     const credentialsApps = masterOptions.apps.filter((app) => app.credentials);
@@ -26,8 +24,8 @@ export function render(oldRender) {
         if (credentialsApps.some((app) => app.entry === url)) {
           return defaultFetch(url, {
             ...init,
-            mode: "cors",
-            credentials: "include",
+            mode: 'cors',
+            credentials: 'include'
           });
         }
 
@@ -49,7 +47,7 @@ export function render(oldRender) {
       const loadableApps = apps.filter((app) => !app.base);
       if (loadableApps.length) {
         const { prefetch, ...importEntryOpts } = options;
-        if (prefetch === "all") {
+        if (prefetch === 'all') {
           prefetchApps(loadableApps, importEntryOpts);
         } else if (Array.isArray(prefetch)) {
           const specialPrefetchApps = loadableApps.filter(
@@ -68,7 +66,7 @@ export function render(oldRender) {
 export function patchRoutes(opts) {
   if (microAppRuntimeRoutes) {
     const getRootRoutes = (routes) => {
-      const rootRoute = routes.find((route) => route.path === "/");
+      const rootRoute = routes.find((route) => route.path === '/');
       if (rootRoute) {
         // 如果根路由是叶子节点，则直接返回其父节点
         if (!rootRoute.routes?.length) {
@@ -89,10 +87,18 @@ export function patchRoutes(opts) {
         patchMicroAppRoute(microAppRoute, getMicroAppRouteComponent, {
           base,
           masterHistoryType,
-          routeBindingAlias,
+          routeBindingAlias
         });
         rootRoutes.unshift(microAppRoute);
       });
     }
   }
+}
+
+export default function QiankunGenerator(
+  api: { render: (arg0: string) => void },
+  _options = {},
+  rootOptions = {}
+) {
+  console.log('QiankunGenerator');
 }
