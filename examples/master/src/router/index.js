@@ -30,7 +30,7 @@ const routes = [
     }
   },
   {
-    path: '/app1',
+    path: '/app1*',
     microApp: 'app1',
     settings: {
       singular: false
