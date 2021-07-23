@@ -1,2 +1,3 @@
-const ui = require('./lib/ui');
-module.exports = ui.default
+const ui = require('./es/ui');
+
+module.exports = ui.default;

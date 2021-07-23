@@ -1,8 +1,8 @@
-import { isEqual } from 'lodash';
+/* eslint-disable @typescript-eslint/no-var-requires */
 // eslint-disable-next-line import/extensions
-import type { SlaveOptions } from '../types';
+const { isEqual } = require('lodash');
 
-export function isSlaveEnable(options: any) {
+function isSlaveEnable(options: any) {
   return (
     !!options.pluginOptions?.qiankun?.slave ||
     isEqual(options.pluginOptions?.qiankun, {}) ||
@@ -10,9 +10,13 @@ export function isSlaveEnable(options: any) {
   );
 }
 
-export default function QiankunSlave(api: any, options: any) {
+exports.isSlaveEnable = isSlaveEnable;
+
+//@ts-ignore
+module.exports = function QiankunSlave(api: any, options: any) {
   if (isSlaveEnable(options)) {
-    const initialSlaveOptions: SlaveOptions = {
+    console.log('QiankunSlave');
+    const initialSlaveOptions = {
       devSourceMap: true,
       ...JSON.parse(process.env.INITIAL_QIANKUN_SLAVE_OPTIONS || '{}'),
       ...(options.pluginOptions.qiankun || {}).slave
@@ -35,4 +39,4 @@ export default function QiankunSlave(api: any, options: any) {
       return config;
     });
   }
-}
+};

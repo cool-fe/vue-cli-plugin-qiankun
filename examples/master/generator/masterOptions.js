@@ -1,6 +1,5 @@
 let options = { masterHistoryType: 'browser', base: '/' };
 export const getMasterOptions = () => options;
-// eslint-disable-next-line no-return-assign
 export const setMasterOptions = (newOpts) => (options = { ...options, ...newOpts });
 
 export function getMasterRuntime() {

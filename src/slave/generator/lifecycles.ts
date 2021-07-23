@@ -1,6 +1,6 @@
-import { createHistory } from "@@/core/history";
-import { setModelState } from "./qiankunModel";
+import { setModelState } from './qiankunModel';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => {};
 
 type Defer = {
@@ -8,6 +8,7 @@ type Defer = {
   resolve(value?: any): void;
 };
 
+//@ts-ignore
 const defer: Defer = {};
 defer.promise = new Promise((resolve) => {
   defer.resolve = resolve;
@@ -19,27 +20,11 @@ let hasMountedAtLeastOnce = false;
 export default () => defer.promise;
 export const clientRenderOptsStack: any[] = [];
 
-function normalizeHistory(
-  history?: "string" | Record<string, any>,
-  base?: string
-) {
-  let normalizedHistory: Record<string, any> = {};
-  if (base) normalizedHistory.basename = base;
-  if (history) {
-    if (typeof history === "string") {
-      normalizedHistory.type = history;
-    } else {
-      normalizedHistory = history;
-    }
-  }
-
-  return normalizedHistory;
-}
-
 async function getSlaveRuntime() {
   // TODO 需要想办法可以让业务做运行时配置
   const config = {};
   // 应用既是 master 又是 slave 的场景，运行时 slave 配置方式为 export const qiankun = { slave: {} }
+  //@ts-ignore
   const { slave } = config;
   return slave || config;
 }
@@ -57,7 +42,7 @@ export function genBootstrap(oldRender: typeof noop) {
 export function genMount(mountElementId: string) {
   return async (props?: any) => {
     // props 有值时说明应用是通过 lifecycle 被主应用唤醒的，而不是独立运行时自己 mount
-    if (typeof props !== "undefined") {
+    if (typeof props !== 'undefined') {
       setModelState(props);
 
       const slaveRuntime = await getSlaveRuntime();
@@ -70,23 +55,18 @@ export function genMount(mountElementId: string) {
         // 默认开启
         // 如果需要手动控制 loading，通过主应用配置 props.autoSetLoading false 可以关闭
         mounted: () => {
-          if (
-            props?.autoSetLoading &&
-            typeof props?.setLoading === "function"
-          ) {
+          if (props?.autoSetLoading && typeof props?.setLoading === 'function') {
             props.setLoading(false);
           }
 
           // 支持将子应用的 history 回传给父应用
-          if (typeof props?.onHistoryInit === "function") {
+          if (typeof props?.onHistoryInit === 'function') {
             props.onHistoryInit(history);
           }
         },
         // 支持通过 props 注入 container 来限定子应用 mountElementId 的查找范围
         // 避免多个子应用出现在同一主应用时出现 mount 冲突
-        el:
-          props?.container?.querySelector(`#${mountElementId}`) ||
-          mountElementId,
+        el: props?.container?.querySelector(`#${mountElementId}`) || mountElementId
       };
 
       clientRenderOptsStack.push(clientRenderOpts);

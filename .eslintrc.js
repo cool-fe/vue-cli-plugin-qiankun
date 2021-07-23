@@ -7,5 +7,8 @@ module.exports = {
         extensions: ['.js', '.ts', '.vue', '.jsx', '.json']
       }
     }
+  },
+  rules: {
+    'import/extensions': 'off'
   }
 };

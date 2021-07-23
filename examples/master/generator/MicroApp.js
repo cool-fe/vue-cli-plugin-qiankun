@@ -69,7 +69,7 @@ export default {
 
       const appConfig = apps.find((app) => app.name === this.name);
       if (!appConfig) {
-        throw new Error(`Can not find the configuration of ${this.name} app!`);
+        throw new Error(`Can not find the configuration of ${name} app!`);
       }
       return { ...appConfig, globalSettings, globalLifeCycles, prefetch };
     },
@@ -133,7 +133,7 @@ export default {
         this.microAppRef?.mountPromise.then(() => {
           if (noneMounted) {
             const { apps = [] } = getMasterOptions();
-            const otherNotMountedApps = apps.filter((app) => app.name !== this.name);
+            const otherNotMountedApps = apps.filter((app) => app.name !== name);
             prefetchApps(otherNotMountedApps, configuration);
             noneMounted = false;
           }
@@ -156,7 +156,6 @@ export default {
         } else {
           // 确保 microApp.update 调用是跟组件状态变更顺序一致的，且后一个微应用更新必须等待前一个更新完成
           this.updatingPromise = this.updatingPromise.then(() => {
-            // eslint-disable-next-line @typescript-eslint/no-shadow
             const canUpdate = (microApp) => microApp?.update && microApp.getStatus() === 'MOUNTED';
             if (canUpdate(microApp)) {
               const props = {
@@ -178,6 +177,7 @@ export default {
               }
 
               // 返回 microApp.update 形成链式调用
+              // @ts-ignore
               return microApp.update(props);
             }
           });
@@ -188,6 +188,7 @@ export default {
     }
   },
   render(h) {
+    debugger;
     // 未配置自定义 loader 且开启了 autoSetLoading 场景下，使用插件默认的 loader，否则使用自定义 loader
     const { loader, autoSetLoading, wrapperClassName, className } = this.routeProps;
     const microAppLoader = loader || (autoSetLoading ? MicroAppLoader : null);

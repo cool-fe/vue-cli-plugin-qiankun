@@ -1,3 +1,1 @@
-const main = require("./lib");
-module.exports = main.default;
-
+module.exports = function () {};

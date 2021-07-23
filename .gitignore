@@ -16,6 +16,8 @@ coverage
 **/lib
 **/node_modules
 dist
+lib
+es
 public
 .scannerwork
 sonar-project.properties

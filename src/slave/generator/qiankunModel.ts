@@ -1,6 +1,5 @@
-
 let initState: any;
-let setModelState = (val: any) => {
+const setModelState = (val: any) => {
   initState = val;
 };
 

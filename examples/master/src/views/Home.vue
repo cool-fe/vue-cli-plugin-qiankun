@@ -12,40 +12,38 @@
       </a>
       提Issue
     </p>
-    <button @click="setQiankunGlobalState">
-      修改全局 state
-    </button>
+    <button @click="setQiankunGlobalState">修改全局 state</button>
     <button @click="setState">修改子应用 props</button>
     <micro-app testProp1="Hello" name="app1" />
   </div>
 </template>
 
 <script>
-import  MicroApp  from "../master/MicroApp";
+  import MicroApp from '@winfe/vue-cli-plugin-qiankun/es/master/generator/MicroApp';
 
-export default {
-  name: "Home",
-  data() {
-    return {
-      state: "",
-    };
-  },
-  methods: {
-    setState(state) {
-      this.state = state;
+  export default {
+    name: 'Home',
+    data() {
+      return {
+        state: ''
+      };
     },
-    setQiankunGlobalState() {},
-  },
-  components: {
-    MicroApp,
-  },
-};
+    methods: {
+      setState(state) {
+        this.state = state;
+      },
+      setQiankunGlobalState() {}
+    },
+    components: {
+      MicroApp
+    }
+  };
 </script>
 
 <style>
-.container {
-  height: 100%;
-  padding: 50px;
-  background: white;
-}
+  .container {
+    height: 100%;
+    padding: 50px;
+    background: white;
+  }
 </style>

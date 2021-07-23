@@ -1,12 +1,6 @@
 export default {
-  target: "node",
-  nodeVersion: 12,
-  cjs: { type: "babel", lazy: true },
+  target: 'browser',
+  esm: 'babel',
   runtimeHelpers: true,
-  browserFiles: [
-    'src/master/generator/index.js',
-    'src/slave/generator/lifecycles.ts',
-    'src/slave/generator/index.js',
-    'src/common.ts',
-  ],
+  nodeFiles: ['src/index.ts', 'src/generator.ts', 'src/master/index.ts', 'src/slave/index.ts']
 };
